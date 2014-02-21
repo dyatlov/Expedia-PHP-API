@@ -1,0 +1,14 @@
+{
+    "name": "dyatlov/Expedia-PHP-API",
+    "description": "A Laravel wrapper for the expedia ean api",
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "Dyatlov\\Expedia": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
