@@ -1,11 +1,13 @@
 <?php
 
+require_once 'Dyatlov/Expedia/API.php';
+
 use Dyatlov\Expedia\API;
 
 session_start();
 
 // create an instance
-$expedia = new Expedia( '<put your client id (cid) here>', '<put your key here>' );
+$expedia = new API( '<put your client id (cid) here>', '<put your key here>' );
 
 $expedia->set_customer_session_id( session_id() );
 $expedia->set_customer_ip_address($_SERVER['REMOTE_ADDR']);
@@ -15,11 +17,11 @@ $expedia->set_minor_rev(26);
 
 // get hotels list for specified destination
 $hotels = $expedia->getHotelList(array(
-  'destinationId' => '08D9CD84-36F7-4FE4-9D80-D04E10A778C4',
-  'arrivalDate' => '10/10/2014',
-  'departureDate' => '10/11/2014',
-  'numberOfResults' => 10,
-  'room1' => 1
+    'destinationId' => '08D9CD84-36F7-4FE4-9D80-D04E10A778C4',
+    'arrivalDate' => '10/10/2014',
+    'departureDate' => '10/11/2014',
+    'numberOfResults' => 10,
+    'room1' => 1
 ));
 
 var_export($hotels);
