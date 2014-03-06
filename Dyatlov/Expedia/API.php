@@ -6,6 +6,9 @@
 
 namespace Dyatlov\Expedia;
 
+require_once dirname(__FILE__) . '/Expedia.php';
+require_once dirname(__FILE__) . '/Exception.php';
+
 class API extends Expedia
 {
     protected $_totalHotels = 0;
@@ -24,9 +27,9 @@ class API extends Expedia
     public function getPaymentOptions($currencyCode, $locale)
     {
         $result = $this->paymentInfo(array(
-                'currencyCode' => $currencyCode,
-                'locale' => $locale
-            ));
+            'currencyCode' => $currencyCode,
+            'locale' => $locale
+        ));
 
         return $result;
     }
