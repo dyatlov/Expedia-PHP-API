@@ -6,6 +6,8 @@
 
 namespace Dyatlov\Expedia;
 
+require_once dirname(__FILE__) . '/Exception.php';
+
 class Expedia
 {
     /**
@@ -94,10 +96,10 @@ class Expedia
     protected $verbose_log;
 
     /**
-    * Query method: POST or GET
-    *
-    * @var string
-    */
+     * Query method: POST or GET
+     *
+     * @var string
+     */
     protected $method = 'GET';
 
     protected $protocol = 'http://';
@@ -303,7 +305,7 @@ class Expedia
 
             $url .= '?' . http_build_query($data);
 
-            if( $this->method == 'GET' ) {                                
+            if( $this->method == 'GET' ) {
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
             }
             else {
@@ -315,12 +317,12 @@ class Expedia
         $header[] = "Accept: application/json";
         $header[] = "Accept-Encoding: gzip";
         $header[] = "Content-length: 0";
-        
+
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_ENCODING, "gzip");        
+        curl_setopt($ch, CURLOPT_ENCODING, "gzip");
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
